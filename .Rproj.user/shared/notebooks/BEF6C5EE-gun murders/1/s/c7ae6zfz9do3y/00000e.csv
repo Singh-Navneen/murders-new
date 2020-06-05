@@ -1,0 +1,5 @@
+"0","load(murders, file = ""murders/rda.rda"")
+"
+"2","Error in load(murders, file = ""murders/rda.rda"") : 
+  invalid 'envir' argument
+"

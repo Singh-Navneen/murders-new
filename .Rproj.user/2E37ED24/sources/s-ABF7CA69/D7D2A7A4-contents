@@ -1,0 +1,31 @@
+---
+title: "Gun murders in US"
+author: "Navneen Singh"
+date: "03/06/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This report shows the U.S. Gun murder rates according to the data collected by the FBI.
+The following data file is loaded.
+```{r cars}
+load("murders/rda.rda")
+library(tidyverse)
+```
+
+## Including Plots
+
+Here is a bargraph showing murder rates according to the states, from highest to lowest.
+
+```{r murder-rate-by-state, echo=FALSE}
+murders %>% mutate(abb = reorder(abb, rate)) %>% 
+  ggplot(aes(abb, rate)) + geom_bar(width = 0.5, stat = "identity", color = "black") + 
+  coord_flip()
+```
+
+Note that Washington D.C. has the highest rate and Vermont has the lowest.
